@@ -21,7 +21,7 @@ exports.list = function(callback, errback) {
 };
 
 exports.update = function(id, update, callback, errback) {
-  Item.findByIdAndUpdate(id, update, function(err, item) {
+  Item.findByIdAndUpdate(id, update, {new: true, upsert: true}, function(err, item) {
     if (err) {
       errback(err);
       return;

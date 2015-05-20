@@ -19,7 +19,6 @@ router.post('/items', function(req, res) {
 });
 
 router.put('/items/:id', function(req, res) {
-  console.log('Updating id', req.params.id);
   Item.update(req.params.id, {name: req.body.name}, function(item) {
     res.status(200).json(item);
   }, function(err) {
@@ -31,7 +30,6 @@ router.put('/items/:id', function(req, res) {
 // item is saved to db with only a name parameter
 // how can i use the existing view
 router.delete('/items/:id', function(req, res) {
-  console.log("Deleting id", req.params.id);
   Item.remove(req.params.id, function(item) {
     res.status(200).json(item);
   }, function(err) {
